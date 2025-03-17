@@ -12,7 +12,7 @@ const CartPage = () => {
     useEffect(() => {
         const fetchCart = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/cart", {
+                const response = await axios.get(`${import.meta.env.VITE_API_LINK}/api/cart`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
                 });
                 setCart(response.data);
@@ -35,7 +35,7 @@ const CartPage = () => {
 
     try {
         await axios.post(
-            "http://localhost:3000/api/cart/update",
+            `${import.meta.env.VITE_API_LINK}/api/cart/update`,
             { productId, quantity: newQuantity },
             { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
         );
@@ -55,7 +55,7 @@ const CartPage = () => {
     const handleRemove = async (productId) => {
         try {
             await axios.post(
-                "http://localhost:3000/api/cart/remove",
+               `${import.meta.env.VITE_API_LINK}/api/cart/remove`,
                 { productId },
                 { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
             );

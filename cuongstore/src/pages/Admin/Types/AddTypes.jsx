@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AdminTypes.css";
 
-const API_URL = "http://localhost:3000/types";
+const API_URL = `${import.meta.env.VITE_API_LINK}/types`;
 
 const AddType = () => {
   const { register, handleSubmit, reset } = useForm();

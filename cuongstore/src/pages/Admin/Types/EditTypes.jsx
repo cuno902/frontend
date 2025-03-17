@@ -5,7 +5,7 @@ import axios from "axios";
 import "./AdminTypes.css";
 import { toast } from "react-toastify";  // Ensure toast is imported for notifications
 
-const API_URL = "http://localhost:3000/api/types";
+const API_URL = `${import.meta.env.VITE_API_LINK}/api/types`;
 
 const EditType = () => {
   const { id } = useParams();

@@ -13,7 +13,7 @@ const ProductPage = () => {
     useEffect(() => {
        const fetchProducts = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/products", {
+                const response = await axios.get(`${import.meta.env.VITE_API_LINK}/api/products`, {
                     params: {
                         type: filters.type || undefined,
                         sortBy: filters.sortBy || undefined,
@@ -30,7 +30,7 @@ const ProductPage = () => {
 
         const fetchProductTypes = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/types");
+                const response = await axios.get(`${import.meta.env.VITE_API_LINK}/api/types`);
                 setProductTypes(response.data);
             } catch (error) {
                 console.error("Error fetching product types:", error);

@@ -23,6 +23,7 @@ import EditType from "./pages/Admin/Types/EditTypes";
 import CreateProduct from "./pages/Admin/CreateProduct/CreateProduct";
 import ProtectedAdminLayout from "./components/ProtectedRoutes";
 import AdminNavbar from "./components/AdminNav/Navbar";
+import dotenv from "dotenv"
 
 
 const AppContent = () => {

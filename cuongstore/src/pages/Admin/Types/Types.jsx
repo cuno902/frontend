@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AdminTypes.css";
 
-const API_URL = "http://localhost:3000/api/types"; 
+const API_URL = `${import.meta.env.VITE_API_LINK}/api/types`; 
 
 const AdminTypes = () => {
   const [types, setTypes] = useState([]);

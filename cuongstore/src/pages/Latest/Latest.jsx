@@ -8,7 +8,7 @@ const Latest = () => {
     useEffect(() => {
     const fetchLatest = async () => {
         try {
-            const response = await fetch("http://localhost:3000/api/products", {
+            const response = await fetch(`${import.meta.env.VITE_API_LINK}/api/products`, {
                 method: "GET", 
                 headers: {
                     "Content-Type": "application/json"

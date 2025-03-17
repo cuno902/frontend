@@ -5,7 +5,7 @@ import axios from "axios";
 import "../AdminUser/AdminUsers.css";
 import { toast } from "react-toastify";  // Import toast for error/success messages
 
-const API_URL = "http://localhost:3000/api/users/register";
+const API_URL = `${import.meta.env.VITE_API_LINK}/api/users/register`;
 
 const AddUser = () => {
   const { register, handleSubmit, reset } = useForm();

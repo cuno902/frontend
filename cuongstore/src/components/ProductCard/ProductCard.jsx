@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
 
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/cart/add",
+                `${process.env.API_LINK}/api/cart/add`,
                 { productId: product._id, quantity : 1 },
                 { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } } 
             );

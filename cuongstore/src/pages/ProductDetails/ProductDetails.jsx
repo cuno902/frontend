@@ -13,7 +13,7 @@ const ProductDetails = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/products/${id}`);
+                const response = await axios.get(`${import.meta.env.VITE_API_LINK}/api/products/${id}`);
                 setProduct(response.data);
             } catch (error) {
                 setError("Product not found");
@@ -35,7 +35,7 @@ const ProductDetails = () => {
     const handleAddToCart = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/cart/add",
+                `${import.meta.env.VITE_API_LINK}/api/cart/add`,
                 { productId: product._id, quantity },
                 { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } } 
             );

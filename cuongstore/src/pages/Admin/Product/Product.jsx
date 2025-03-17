@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Product.css";
 
 // API Endpoint
-const API_URL = "http://localhost:3000/api/products";
+const API_URL = `${import.meta.env.VITE_API_LINK}/api/products`;
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);

@@ -4,8 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./UpdateProduct.css";
 
-const API_URL = "http://localhost:3000/api/products";
-const TYPE_API_URL = "http://localhost:3000/api/types";
+const API_URL = `${import.meta.env.VITE_API_LINK}/api/products`;
+const TYPE_API_URL = `${import.meta.env.VITE_API_LINK}/api/types`;
 
 const UpdateProduct = () => {
   const { id } = useParams();
