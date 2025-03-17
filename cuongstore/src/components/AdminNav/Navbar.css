@@ -1,0 +1,106 @@
+/* Main Navbar Style */
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.admin-navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ensure full-width layout */
+  max-width: 1200px; /* Limit maximum width */
+  margin: 0 auto; /* Center the content */
+}
+
+.admin-navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.admin-navbar-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-navbar-link {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  line-height: 1.5;
+}
+
+.admin-navbar-link:hover {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+/* Ensure the logout button is aligned with the other links */
+.logout-button {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  display: flex; /* Aligns the button with other links */
+  align-items: center; /* Ensures it aligns with other links */
+}
+
+.logout-button:hover {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Hide the links by default */
+  .admin-navbar-links {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  /* Show links when active */
+  .admin-navbar-links.active {
+    display: flex;
+  }
+
+  /* Links in mobile view */
+  .admin-navbar-link {
+    margin: 10px 0;
+  }
+
+  /* Show hamburger menu on mobile */
+  .admin-navbar-hamburger {
+    display: flex;
+  }
+}

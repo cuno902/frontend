@@ -1,0 +1,131 @@
+/* General Page Styles */
+.admin-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Inter", sans-serif;
+}
+
+.admin-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Styles */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.admin-input:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.admin-button {
+  background: #4a90e2;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-button:hover {
+  background: #357ab7;
+}
+
+/* Table Styles */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-table th, .admin-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-table th {
+  background: #f4f4f4;
+  font-weight: 600;
+}
+
+.admin-table tr:hover {
+  background: #f9f9f9;
+}
+
+/* Button Styles */
+.edit-button, .delete-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-button {
+  background: #f0ad4e;
+  color: white;
+}
+
+.edit-button:hover {
+  background: #ec971f;
+}
+
+.delete-button {
+  background: #d9534f;
+  color: white;
+  margin-left: 5px;
+}
+
+.delete-button:hover {
+  background: #c9302c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .admin-table th, .admin-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.image-preview {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-top: 10px;
+}

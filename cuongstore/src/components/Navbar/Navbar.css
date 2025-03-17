@@ -1,0 +1,25 @@
+
+.navbar-container {
+    background-color: #b8e4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    height: 60px;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links a {
+    color: black;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navbar-links a:hover {
+    color: white;
+    transform: scale(1.1);
+}

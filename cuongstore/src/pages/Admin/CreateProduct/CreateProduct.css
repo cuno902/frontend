@@ -1,0 +1,86 @@
+/* General Page Styles */
+.admin-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Inter", sans-serif;
+}
+
+.admin-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Styles */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #fafafa;
+  transition: all 0.3s ease-in-out;
+}
+
+.admin-input:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.admin-button {
+  background: #4a90e2;
+  color: white;
+  font-size: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.admin-button:hover {
+  background: #357ab7;
+}
+
+/* File Input Styling */
+input[type="file"] {
+  border: none;
+  padding: 10px;
+  background: #f8f8f8;
+  cursor: pointer;
+}
+
+/* Select Dropdown */
+select {
+  appearance: none;
+  background: white;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .admin-input {
+    font-size: 14px;
+  }
+}
