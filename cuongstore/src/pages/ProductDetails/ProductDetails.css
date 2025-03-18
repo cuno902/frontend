@@ -19,8 +19,8 @@
     flex-direction: row;
 }
 
-.product-image {
-    width: 400px;
+.product1-image {
+    width: 50vw;
     height: auto;
     border-radius: 10px;
     object-fit: cover;

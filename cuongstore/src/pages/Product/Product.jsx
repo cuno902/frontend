@@ -9,7 +9,6 @@ const ProductPage = () => {
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [filters, setFilters] = useState({ price: "", type: "", sortBy: "" });
 
-    // Fetch products (GET request)
     useEffect(() => {
        const fetchProducts = async () => {
             try {
