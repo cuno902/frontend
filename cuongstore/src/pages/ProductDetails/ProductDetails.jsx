@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./ProductDetails.css";
 
@@ -9,6 +9,9 @@ const ProductDetails = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [quantity, setQuantity] = useState(1);
+    const navigate = useNavigate(); // Hook to navigate programmatically
+
+    
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -37,15 +40,21 @@ const ProductDetails = () => {
             const response = await axios.post(
                 `${import.meta.env.VITE_API_LINK}/api/cart/add`,
                 { productId: product._id, quantity },
-                { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } } 
+                { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
             );
 
             console.log(response.data.message);
-            alert("Item added to cart!");
+            alert("Sản phẩm đã được thêm vào giỏ");
         } catch (error) {
             console.error("Error adding to cart:", error.response?.data?.message || error.message);
-            alert("Failed to add item to cart");
+            alert("Thêm vào giỏ hàng không thành công");
         }
+    };
+
+    const handleBuyNow = () => {
+        navigate("/payment", {  state: { 
+            products: [{ product, quantity }] 
+        }  });
     };
 
     if (loading) return <p>Loading...</p>;
@@ -54,24 +63,28 @@ const ProductDetails = () => {
     return (
         <div className="product-container">
             <div className="product-details">
-            <img src={product.imageUrl} alt={product.name} className="product1-image" />
-            <div className="product-info">
-                <h1>{product.name}</h1>
-                <p className="product-price">${product.price.toFixed(2)}</p>
-                
-                {/* Quantity Selector */}
-                <div className="quantity-selector">
-                    <label>Quantity:</label>
-                    <input type="number" value={quantity} onChange={handleQuantityChange} min="1" />
-                </div>
+                <img src={product.imageUrl} alt={product.name} className="product1-image" />
+                <div className="product-info">
+                    <h1>{product.name}</h1>
+                    <p className="product-price">{new Intl.NumberFormat().format(product.price)}₫</p>
+                    
+                    {/* Quantity Selector */}
+                    <div className="quantity-selector">
+                        <label>Số lượng:</label>
+                        <input type="number" value={quantity} onChange={handleQuantityChange} min="1" />
+                    </div>
 
-                <button className="add-to-cart" onClick={handleAddToCart}>
-                    Add to Cart
-                </button>
-            </div>
+                    <button className="add-to-cart" onClick={handleAddToCart}>
+                        Thêm vào giỏ hàng
+                    </button>
+
+                    <button className="buy-now" onClick={handleBuyNow}>
+                        Mua ngay
+                    </button>
+                </div>
             </div>
             <div className="product-description">
-                <h2>Description</h2>
+                <h2>Mô tả</h2>
                 <p>{product.description}</p>
             </div>
         </div>

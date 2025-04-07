@@ -14,16 +14,16 @@ const ProductCard = ({ product }) => {
 
         try {
             const response = await axios.post(
-                `${process.env.API_LINK}/api/cart/add`,
+                `${import.meta.env.VITE_API_LINK}/api/cart/add`,
                 { productId: product._id, quantity : 1 },
-                { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } } 
+                { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
             );
 
             console.log(response.data.message);
-            alert("Item added to cart!");
+            alert("Sản phẩm đã được thêm vào giỏ");
         } catch (error) {
             console.error("Error adding to cart:", error.response?.data?.message || error.message);
-            alert("Failed to add item to cart");
+            alert("Thêm vào giỏ hàng không thành công");
         }
     };
 
@@ -32,9 +32,9 @@ const ProductCard = ({ product }) => {
             <img src={product.imageUrl} alt={product.name} className="product-image" />
             <div className="product-info">
                 <h3>{product.name}</h3>
-                <p className="product-price">${product.price.toFixed(2)}</p>
+                <p className="product-price">{new Intl.NumberFormat().format(product.price)}₫</p>
                 <button className="add-to-cart" onClick={handleAddToCart}>
-                    Add to Cart
+                    Thêm vào giỏ
                 </button>
             </div>
         </div>

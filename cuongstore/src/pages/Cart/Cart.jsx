@@ -7,7 +7,7 @@ const CartPage = () => {
     const [cart, setCart] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const navigate = useNavigate(); // Initialize navigate
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchCart = async () => {
@@ -17,7 +17,7 @@ const CartPage = () => {
                 });
                 setCart(response.data);
             } catch (error) {
-                setError("Failed to load cart");
+                setError("Tải giỏ hàng thất bại. Vui lòng thử lại sau.");
             } finally {
                 setLoading(false);
             }
@@ -29,7 +29,7 @@ const CartPage = () => {
     const handleUpdateQuantity = async (productId, newQuantity) => {
     newQuantity = Number(newQuantity);
     if (isNaN(newQuantity) || newQuantity < 1) {
-        alert("Invalid quantity");
+        alert("Số lượng không hợp lệ. Vui lòng nhập lại.");
         return;
     }
 
@@ -47,7 +47,7 @@ const CartPage = () => {
             ),
         }));
     } catch (error) {
-        console.error("Error updating quantity:", error.response?.data?.message || error.message);
+        console.error("Lỗi đổi số lượng", error.response?.data?.message || error.message);
     }
 };
 
@@ -65,18 +65,46 @@ const CartPage = () => {
                 items: prevCart.items.filter((item) => item.productId._id !== productId),
             }));
         } catch (error) {
-            console.error("Error removing item:", error.response?.data?.message || error.message);
+            console.error("Xóa item bị lỗi", error.response?.data?.message || error.message);
         }
     };
 
+    
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
-    if (!cart || cart.items.length === 0) return <p>Your cart is empty.</p>;
+    if (!cart || cart.items.length === 0) return <h1>Giỏ hàng của bạn đang trống</h1>;
 
     const totalPrice = cart.items.reduce(
         (sum, item) => sum + item.productId.price * item.quantity,
         0
     );
+
+    const handleBuy = async () => {
+        setLoading(true); // Set loading to true while processing the data
+
+        try {
+            if (cart && cart.items.length > 0) {
+            const products = cart.items.map(item => ({
+                product: item.productId,
+                quantity: item.quantity
+            }));
+
+            navigate("/payment", {
+                state: {
+                    products: products, 
+                }
+            });
+            } else {
+                alert("Your cart is empty!");
+            }
+        } catch (err) {
+            setError("Thanh toán thất bại. Vui lòng thử lại sau.");
+        } finally {
+            setLoading(false); 
+        }
+    };
+
 
     return (
         <div className="cart-container">
@@ -94,7 +122,7 @@ const CartPage = () => {
                         />
                         <div className="item-details">
                             <h3>{item.productId.name}</h3>
-                            <p>${item.productId.price.toFixed(2)}</p>
+                            <p> {new Intl.NumberFormat().format(item.productId.price)}₫</p>
                             <div className="quantity-control">
                                 <button onClick={() => handleUpdateQuantity(item.productId._id, item.quantity - 1)}>-</button>
                                 <span>{item.quantity}</span>
@@ -102,14 +130,18 @@ const CartPage = () => {
                             </div>
                         </div>
                         <button className="remove-btn" onClick={() => handleRemove(item.productId._id)}>
-                            Remove
+                            Xóa
                         </button>
                     </div>
                 ))}
             </div>
             <div className="cart-total">
-                <h2>Total: ${totalPrice}</h2>
+                <h2>Tổng tiền:  {new Intl.NumberFormat().format(totalPrice)}₫</h2>
             </div>
+
+            <button className="confirm-buy-btn" onClick={handleBuy}>
+                Thanh toán
+            </button>
         </div>
     );
 };

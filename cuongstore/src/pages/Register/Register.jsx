@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {registerUser} from "../../services/AuthServices.js"
 import { useNavigate } from "react-router-dom";
 import "../Login/Login.css"
+import { set } from "mongoose";
 
 const Register = () => {
   const [formData, setFormData] = useState({ username: "", email: "", password: "" });
@@ -15,6 +16,10 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.username || !formData.password) {
+      setError('Vui lòng điền đầy đủ thông tin.'); 
+      return; 
+    }
     try {
       await registerUser(formData);
       navigate("/login");

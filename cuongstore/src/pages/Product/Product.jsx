@@ -42,9 +42,9 @@ const ProductPage = () => {
     return (
         <div className="product-page">
             <aside className="filter-sidebar">
-                <h3>Filters</h3>
+                <h3>Bộ lọc</h3>
 
-                <label>Max Price:</label>
+                <label>Giá tối đa:</label>
                 <input
                     type="number"
                     placeholder="Enter max price"
@@ -61,11 +61,11 @@ const ProductPage = () => {
 
                 <label>Sort By:</label>
                 <select onChange={(e) => setFilters({ ...filters, sortBy: e.target.value })}>
-                    <option value="">None</option>
-                    <option value="newest">Newest</option>
-                    <option value="oldest">Oldest</option>
-                    <option value="lowToHigh">Price: Low to High</option>
-                    <option value="highToLow">Price: High to Low</option>
+                    <option value="">Không</option>
+                    <option value="newest">Mới nhất</option>
+                    <option value="oldest">Cũ nhất</option>
+                    <option value="lowToHigh">Giá: Thấp đến cao</option>
+                    <option value="highToLow">Giá: Cao đến thấp</option>
                 </select>
             </aside>
 
@@ -75,7 +75,7 @@ const ProductPage = () => {
                         <ProductCard key={product._id} product={product} />
                     ))
                 ) : (
-                    <p>No products found</p>
+                    <p>Không tìm thấy sản phẩm</p>
                 )}
             </section>
         </div>

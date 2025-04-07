@@ -23,6 +23,10 @@ import EditType from "./pages/Admin/Types/EditTypes";
 import CreateProduct from "./pages/Admin/CreateProduct/CreateProduct";
 import ProtectedAdminLayout from "./components/ProtectedRoutes";
 import AdminNavbar from "./components/AdminNav/Navbar";
+import Profile from "./pages/PersonalDetails/Profile";
+import EditProfile from "./pages/EditProfile/EditProfile";
+import ChangePassword from "./pages/ChangePassword/ChangePassword";
+import PaymentPage from "./pages/PaymentPage/PaymentPage";
 
 
 const AppContent = () => {
@@ -43,6 +47,10 @@ const AppContent = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/edit-profile/:id" element={<EditProfile />} />
+        <Route path="/change-password/:id" element={<ChangePassword />} />
+        <Route path="/payment" element={<PaymentPage />} />
 
         {/* Protected Admin Routes */}
         <Route path="/admin/*" element={<ProtectedAdminLayout />}>

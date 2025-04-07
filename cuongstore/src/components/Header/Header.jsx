@@ -53,7 +53,9 @@ const Header = () => {
             <div className="header-actions">
                 {user ? (
                     <>
-                        <span className="header-icon">👋 {user.username}</span>
+                        <Link to={`/profile/${user.id}`}>
+                            <span className="header-icon">👋 {user.username}</span>
+                        </Link>
                         <button onClick={handleLogout} className="logout-btn">Đăng xuất</button>
                     </>
                 ) : (

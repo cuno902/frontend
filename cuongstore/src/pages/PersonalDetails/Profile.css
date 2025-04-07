@@ -1,0 +1,53 @@
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.profile-details {
+    text-align: left;
+    padding: 10px;
+}
+
+.profile-details p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.edit-btn, .change-password-btn {
+    display: block;
+    width: 200px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto;
+}
+
+.change-password-btn {
+    background: #dc3545;
+}
+
+.edit-btn:hover {
+    background: #0056b3;
+}
+
+.change-password-btn:hover {
+    background: #c82333;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
