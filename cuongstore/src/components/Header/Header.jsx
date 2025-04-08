@@ -47,7 +47,7 @@ const Header = () => {
             </div>
 
             <div className="header-logo">
-                <Link to="/" style={{textDecoration : "none", color: "black"}}>MyBrand</Link>
+                <Link to="/" style={{textDecoration : "none", color: "black"}}>BluePeach</Link>
             </div>
 
             <div className="header-actions">
