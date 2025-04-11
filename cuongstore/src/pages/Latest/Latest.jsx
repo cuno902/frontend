@@ -8,7 +8,7 @@ const Latest = () => {
     useEffect(() => {
     const fetchLatest = async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_LINK}/api/products`, {
+            const response = await fetch(`${import.meta.env.VITE_API_LINK}/api/products/latest`, {
                 method: "GET", 
                 headers: {
                     "Content-Type": "application/json"
@@ -35,7 +35,7 @@ const Latest = () => {
             <h1>Hàng mới nhất</h1>
             <div className="products-grid">
                 {products.length > 0 ? (
-                    products.map((product) => <ProductCard key={product._id} product={product} />)
+                    products.slice(0, 10).map((product) => <ProductCard key={product._id} product={product} />)
                 ) : (
                     <p>Không có sản phẩm</p>
                 )}

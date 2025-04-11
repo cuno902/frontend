@@ -8,7 +8,7 @@ const BestSellers = () => {
     useEffect(() => {
     const fetchBestSellers = async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_LINK}/api/products`, {
+            const response = await fetch(`${import.meta.env.VITE_API_LINK}/api/products/hottest`, {
                 method: "GET", 
                 headers: {
                     "Content-Type": "application/json"
@@ -32,15 +32,17 @@ const BestSellers = () => {
 
     return (
         <div className="best-sellers">
-            <h1>Sản phẩm bán chạy</h1>
-            <div className="products-grid">
-                {products.length > 0 ? (
-                    products.map((product) => <ProductCard key={product._id} product={product} />)
-                ) : (
-                    <p>Không có sản phẩm</p>
-                )}
-            </div>
-        </div>
+    <h1>Sản phẩm bán chạy</h1>
+    <div className="products-grid">
+        {products.length > 0 ? (
+            products.map((product) => (
+                <ProductCard key={product._id} product={product} />
+            ))
+        ) : (
+            <p>Không có sản phẩm</p>
+        )}
+    </div>
+</div>
     );
 };
 
