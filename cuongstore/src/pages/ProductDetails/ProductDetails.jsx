@@ -67,6 +67,7 @@ const ProductDetails = () => {
                 <div className="product-info">
                     <h1>{product.name}</h1>
                     <p className="product-price">{new Intl.NumberFormat().format(product.price)}₫</p>
+                    <p className="product-stock">Số lượng còn lại: {product.stock}</p>
                     
                     {/* Quantity Selector */}
                     <div className="quantity-selector">
